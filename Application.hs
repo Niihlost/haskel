@@ -6,6 +6,7 @@ module Application where
 import Yesod
 import Foundation
 import Handlers.Onibus
+import Handlers.Viagem
 import Handlers.Pessoa
 import Handlers.Login
 
