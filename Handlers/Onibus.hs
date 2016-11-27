@@ -30,6 +30,6 @@ postOnibusR = do
                     FormSuccess onibus -> do
                        runDB $ insert onibus
                        defaultLayout [whamlet|
-                           <h1> Onibus n° #{OnibusId onibus} Inserido com sucesso. 
+                           <h1>Onibus Inserido com sucesso. 
                        |]
                     _ -> redirect OnibusR
