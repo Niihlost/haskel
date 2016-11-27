@@ -42,4 +42,5 @@ executable         sitehaskel
                    Handlers.Onibus,
                    Handlers.Pessoa,
                    Handlers.Login,
+                   Handlers.Viagem,
                    Handlers.Onibus

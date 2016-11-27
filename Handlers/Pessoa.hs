@@ -18,10 +18,6 @@ formPessoa = renderDivs $ Pessoa <$>
              areq emailField "E-mail" Nothing <*>
              areq passwordField "Password" Nothing
 
-{-dptos = do
-       entidades <- runDB $ selectList [] [Asc DepartamentoNome] 
-       optionsPairs $ fmap (\ent -> (departamentoSigla $ entityVal ent, entityKey ent)) entidades-}
-
 getCadastroR :: Handler Html
 getCadastroR = do
              (widget, enctype) <- generateFormPost formPessoa
