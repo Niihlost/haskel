@@ -9,6 +9,7 @@ import Handlers.Onibus
 import Handlers.Viagem
 import Handlers.Pessoa
 import Handlers.Login
+import Handlers.Log
 
 import Database.Persist.Postgresql
 

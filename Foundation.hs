@@ -33,9 +33,9 @@ Viagem
     deriving Show
     
 Log
-    onibusid OnibusId
     pessoaid PessoaId
-    protocolo Text
+    --onibusid OnibusId
+    viagemid ViagemId
     deriving Show
     
 |]
