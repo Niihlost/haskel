@@ -21,7 +21,7 @@ formOnibus = renderDivs $ Onibus <$>
 getOnibusR :: Handler Html
 getOnibusR = do
              (widget, enctype) <- generateFormPost formOnibus
-             defaultLayout $ widgetForm OnibusR enctype widget "Cadastro de Onibus"
+             defaultLayout $ widgetForm OnibusR enctype widget "Cadastro de Onibus" "Cadastrar"
 
 postOnibusR :: Handler Html
 postOnibusR = do

@@ -33,7 +33,7 @@ Viagem
     preco Double
     deriving Show
     
-Log
+Reserva
     pessoaid PessoaId
     viagemid ViagemId
     deriving Show
@@ -70,5 +70,5 @@ type Form a = Html -> MForm Handler (FormResult a, Widget)
 instance RenderMessage Sitio FormMessage where
     renderMessage _ _ = defaultFormMessage
 
-widgetForm :: Route Sitio -> Enctype -> Widget -> Text -> Widget
-widgetForm x enctype widget y = $(whamletFile "templates/form.hamlet")
+widgetForm :: Route Sitio -> Enctype -> Widget -> Text -> Text -> Widget
+widgetForm x enctype widget y z = $(whamletFile "templates/form.hamlet")

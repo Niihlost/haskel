@@ -18,7 +18,7 @@ formLogin = renderDivs $ (,) <$>
 getLoginR :: Handler Html
 getLoginR = do
     (widget, enctype) <- generateFormPost formLogin
-    defaultLayout $ widgetForm LoginR enctype widget "Login"
+    defaultLayout $ widgetForm LoginR enctype widget "Login" "Logar"
 
 postLoginR :: Handler Html
 postLoginR = do

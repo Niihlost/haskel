@@ -23,11 +23,11 @@ getCadastroR = do
              (widget, enctype) <- generateFormPost formPessoa
              defaultLayout $ do 
                  addStylesheet $ StaticR teste_css
-                 widgetForm CadastroR enctype widget "Cadastro de Pessoas"
+                 widgetForm CadastroR enctype widget "Cadastro de Pessoas" "Cadastrar"
 
 getPessoaR :: PessoaId -> Handler Html
 getPessoaR pid = do
-             pessoa <- runDB $ get404 pid 
+             pessoa <- runDB $ get404 pid
              defaultLayout [whamlet| 
                  <h1> Seja bem-vindx #{pessoaNome pessoa}
                  <p> Idade: #{pessoaIdade pessoa}

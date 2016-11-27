@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings, QuasiQuotes,
              TemplateHaskell #-}
  
-module Handlers.Log where
+module Handlers.Reserva where
 import Yesod
 import Foundation
 import Control.Monad.Logger (runStdoutLoggingT)
@@ -37,6 +37,6 @@ postReservaR = do
                     Nothing -> redirect HomeR
                     Just userStr -> do
                         pid <- (return $ read $ unpack userStr) :: Handler PessoaId
-                        sequence $ fmap (\vid -> runDB $ insert $ Log pid vid) reservas
+                        sequence $ Prelude.map (\x-> runDB $ insert (Reserva pid x)) reservas
                         defaultLayout [whamlet| <h1> Reservas cadastradas com sucesso! |]
             _ -> redirect ReservaR

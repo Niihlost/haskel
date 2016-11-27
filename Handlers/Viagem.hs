@@ -23,7 +23,7 @@ bus = do
 getViagemR :: Handler Html
 getViagemR = do
              (widget, enctype) <- generateFormPost formViagem
-             defaultLayout $ widgetForm ViagemR enctype widget "Cadastro de Viagem"
+             defaultLayout $ widgetForm ViagemR enctype widget "Cadastro de Viagem" "Cadastrar"
 
 postViagemR :: Handler Html
 postViagemR = do
