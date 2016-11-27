@@ -39,6 +39,6 @@ executable         sitehaskel
     
     other-modules: Foundation,
                    Application,
-                   Handlers.Departamento,
+                   Handlers.Onibus,
                    Handlers.Pessoa,
                    Handlers.Login

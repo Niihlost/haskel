@@ -5,7 +5,7 @@ module Application where
 
 import Yesod
 import Foundation
-import Handlers.Departamento
+import Handlers.Onibus
 import Handlers.Pessoa
 import Handlers.Login
 
@@ -17,9 +17,6 @@ getHelloR :: Handler Html
 getHelloR = defaultLayout $ do
      sess <- lookupSession "_ID"
      [whamlet|
-         <h1> _{MsgHello}
-         <h2> _{MsgBye}
-         <button> _{MsgButton} </button>
          $maybe _ <- sess
              <form action=@{LogoutR} method=post>
                  <input type="submit" value="Logout">

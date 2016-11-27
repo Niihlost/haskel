@@ -12,27 +12,37 @@ import Database.Persist.Postgresql
 data Sitio = Sitio {getStatic :: Static, connPool :: ConnectionPool }
 
 share [mkPersist sqlSettings, mkMigrate "migrateAll"] [persistLowerCase|
-Departamento
-   nome Text 
-   sigla Text sqltype=varchar(3)
-   deriving Show
 
 Pessoa
    nome    Text
    idade   Int
-   salario Double
-   deptoid DepartamentoId
    email   Text
    senha   Text
    UniqueEmail email
    deriving Show
+
+Onibus
+    marca Text
+    placa Text sqltype=varchar(7)
+    deriving Show
+
+Viagem
+    origem Text
+    destino Text
+    onibusid OnibusId
+    deriving Show
+    
+Log
+    onibusid OnibusId
+    pessoaid PessoaId
+    protocolo Text
+    deriving Show
+    
 |]
 
 staticFiles "static"
 
 mkYesodData "Sitio" $(parseRoutesFile "routes")
-
-mkMessage "Sitio" "messages" "pt-br"
 
 instance YesodPersist Sitio where
    type YesodPersistBackend Sitio = SqlBackend
@@ -60,7 +70,5 @@ type Form a = Html -> MForm Handler (FormResult a, Widget)
 instance RenderMessage Sitio FormMessage where
     renderMessage _ _ = defaultFormMessage
 
--- FUNCAO PARA GERAR FORMULARIOS DE UMA MANEIRA GENERICA
 widgetForm :: Route Sitio -> Enctype -> Widget -> Text -> Widget
 widgetForm x enctype widget y = $(whamletFile "templates/form.hamlet")
-
