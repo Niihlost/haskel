@@ -13,7 +13,8 @@ formViagem :: Form Viagem
 formViagem = renderDivs $ Viagem <$>
             areq textField "Origem" Nothing <*>
             areq textField "Destino" Nothing <*>
-            areq (selectField bus) "Onibus" Nothing
+            areq (selectField bus) "Onibus" Nothing <*>
+            areq doubleField "Preço" Nothing
 
 bus = do
     entidades <- runDB $ selectList [] [Asc OnibusMarca] 

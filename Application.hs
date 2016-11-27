@@ -15,11 +15,11 @@ import Database.Persist.Postgresql
 
 mkYesodDispatch "Sitio" resourcesSitio
 
-getHelloR :: Handler Html
-getHelloR = defaultLayout $ do
+getHomeR :: Handler Html
+getHomeR = defaultLayout $ do
      sess <- lookupSession "_ID"
      [whamlet|
          $maybe _ <- sess
-             <form action=@{LogoutR} method=post>
+             <form action=@{LoginR} method=post>
                  <input type="submit" value="Logout">
      |]

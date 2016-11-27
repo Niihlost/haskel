@@ -30,11 +30,11 @@ Viagem
     origem Text
     destino Text
     onibusid OnibusId
+    preco Double
     deriving Show
     
 Log
     pessoaid PessoaId
-    --onibusid OnibusId
     viagemid ViagemId
     deriving Show
     

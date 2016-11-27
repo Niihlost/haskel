@@ -37,4 +37,4 @@ postLoginR = do
 postLogoutR:: Handler Html
 postLogoutR = do
     deleteSession "_ID"
-    redirect HelloR
+    redirect HomeR
