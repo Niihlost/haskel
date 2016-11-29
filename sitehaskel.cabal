@@ -44,4 +44,5 @@ executable         sitehaskel
                    Handlers.Login,
                    Handlers.Viagem,
                    Handlers.Reserva,
-                   Handlers.Onibus
+                   Handlers.Onibus,
+                   Handlers.Cidade

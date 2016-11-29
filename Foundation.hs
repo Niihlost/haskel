@@ -32,6 +32,12 @@ Viagem
     onibusid OnibusId
     preco Double
     deriving Show
+
+Cidade
+    nome Text
+    estado Text
+    sigla_estado Text sqltype=varchar(2)
+    deriving Show
     
 Reserva
     pessoaid PessoaId
