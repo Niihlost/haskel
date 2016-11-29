@@ -31,6 +31,20 @@ postCidadeR = do
                     FormSuccess cidade -> do
                        runDB $ insert cidade
                        defaultLayout [whamlet|
+                       <center>
                            <h1>Cidade cadastrada com sucesso. 
+                           <h3><a href=@{HomeR}>Página principal   <h3><a href=@{CidadeR}>Voltar
                        |]
                     _ -> redirect CidadeR
+            
+getListarCidadeR :: Handler Html
+getListarCidadeR = do
+             listaP <- runDB $ selectList [] [Asc CidadeNome]
+             defaultLayout $ do
+                [whamlet|
+                        <h1>Cidades cadastradas:
+                        $forall Entity pid cidade <- listaP
+                            #{cidadeNome cidade} - 
+                            #{cidadeEstado cidade} - 
+                            #{cidadeSigla_estado cidade}<br>
+                |]

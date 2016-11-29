@@ -4,4 +4,9 @@ label {
 
 menu {
     text-align: left;
+    font-size: smaller;
+}
+
+center{
+    text-align: center;
 }

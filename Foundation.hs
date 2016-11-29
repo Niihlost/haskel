@@ -25,25 +25,19 @@ Onibus
     marca Text
     placa Text sqltype=varchar(7)
     deriving Show
-
-Viagem
-    origem Text
-    destino Text
-    onibusid OnibusId
-    preco Double
-    deriving Show
-
+    
 Cidade
     nome Text
     estado Text
     sigla_estado Text sqltype=varchar(2)
     deriving Show
     
-Reserva
-    pessoaid PessoaId
-    viagemid ViagemId
+Viagem
+    origem CidadeId
+    destino CidadeId
+    onibusid OnibusId
+    preco Double
     deriving Show
-    
 |]
 
 staticFiles "static"

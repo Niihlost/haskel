@@ -1,10 +1,10 @@
-/                   HomeR     GET
-/pessoa/cadastro    CadastroR GET    POST
-/pessoa/listar      ListarR   GET 
-/onibus/cadastro    OnibusR   GET    POST
-/login              LoginR    GET    POST
-/logout             LogoutR   POST
-/static             StaticR   Static getStatic
-/viagem/cadastro    ViagemR   GET   POST
-/reserva            ReservaR  GET   POST
-/cidade/cadastrar   CidadeR   GET   POST
+/                   HomeR           GET
+/pessoa/cadastro    CadastroR       GET    POST
+/pessoa/listar      ListarR         GET 
+/onibus/cadastro    OnibusR         GET    POST
+/login              LoginR          GET    POST
+/logout             LogoutR         POST
+/static             StaticR         Static getStatic
+/viagem/cadastro    ViagemR         GET   POST
+/cidade/cadastrar   CidadeR         GET   POST
+/cidade/listar      ListarCidadeR   GET

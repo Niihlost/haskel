@@ -9,7 +9,6 @@ import Handlers.Onibus
 import Handlers.Viagem
 import Handlers.Pessoa
 import Handlers.Login
-import Handlers.Reserva
 import Handlers.Cidade
 
 import Database.Persist.Postgresql
@@ -30,5 +29,4 @@ getHomeR = defaultLayout $ do
                 <li><a href=@{OnibusR}>Cadastro da Frota.
                 <li><a href=@{CidadeR}>Cadastro de Cidades.
                 <li><a href=@{ViagemR}>Cadastro de Viagem.
-                <li><a href=@{ReservaR}>Reserva de viagem.
      |]

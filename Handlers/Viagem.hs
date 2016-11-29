@@ -11,10 +11,14 @@ import Database.Persist.Postgresql
 
 formViagem :: Form Viagem
 formViagem = renderDivs $ Viagem <$>
-            areq textField "Origem" Nothing <*>
-            areq textField "Destino" Nothing <*>
-            areq (selectField bus) "Onibus" Nothing <*>
-            areq doubleField "Preço" Nothing
+            areq (selectField cidade) "Origem:      " Nothing <*>
+            areq (selectField cidade) "Destino:      " Nothing <*>
+            areq (selectField bus) "Onibus:      " Nothing <*>
+            areq doubleField "Preço:      " Nothing
+
+cidade = do
+    entidades <- runDB $ selectList [] [Asc CidadeNome] 
+    optionsPairs $ fmap (\ent -> (cidadeNome $ entityVal ent, entityKey ent)) entidades
 
 bus = do
     entidades <- runDB $ selectList [] [Asc OnibusMarca] 
@@ -32,6 +36,7 @@ postViagemR = do
                     FormSuccess viagem -> do
                        runDB $ insert viagem
                        defaultLayout [whamlet|
-                           <h1>Viagem Inserido com sucesso. 
+                           <h1>Viagem Inserido com sucesso.
+                           <h2><a href=@{HomeR}>Voltar
                        |]
                     _ -> redirect ViagemR
