@@ -21,13 +21,13 @@ getHomeR = defaultLayout $ do
      [whamlet|
         <center>
         <menu>
-        <h1>Sistema de reserva de onibus
+        <h1>Sistema de reserva de Viagens
             <ul>
                 <li><a href=@{LoginR}>Login
                 <li><a href=@{CadastroR}>Primeiro Acesso
                 <li><a href=@{MenuOnibusR}>Frota
                 <li><a href=@{MenuCidadeR}>Cidades
-                <li><a href=@{ViagemR}>Cadastro de Viagem
+                <li><a href=@{ViagemR}>Reserva de Viagem
                 
         $maybe _ <- sess
             <br><form action=@{LogoutR} method=post>

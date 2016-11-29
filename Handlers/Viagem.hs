@@ -34,11 +34,11 @@ postViagemR = do
                 ((result, _), _) <- runFormPost formViagem
                 case result of
                     FormSuccess viagem -> do
-                       runDB $ insert viagem
-                       defaultLayout [whamlet|
+                        runDB $ insert viagem
+                        defaultLayout [whamlet|
                            <h1>Viagem Inserido com sucesso.
                            <h3><a href=@{HomeR}>Página principal   <h3><a href=@{CidadeR}>Voltar
-                       |]
+                        |]
                     _ -> redirect ViagemR
                     
 {-getListarViagemR :: Handler Html
