@@ -25,14 +25,6 @@ getCadastroR = do
                  addStylesheet $ StaticR teste_css
                  widgetForm CadastroR enctype widget "Cadastro de Pessoas" "Cadastrar"
 
-getPessoaR :: PessoaId -> Handler Html
-getPessoaR pid = do
-             pessoa <- runDB $ get404 pid
-             defaultLayout [whamlet| 
-                 <h1> Seja bem-vindx #{pessoaNome pessoa}
-                 <p> Idade: #{pessoaIdade pessoa}
-             |]
-
 getListarR :: Handler Html
 getListarR = do
              listaP <- runDB $ selectList [] [Asc PessoaNome]
@@ -50,10 +42,5 @@ postCadastroR = do
                            Just _ -> redirect CadastroR
                            Nothing -> do 
                               pid <- runDB $ insert pessoa 
-                              redirect (PessoaR pid)
+                              redirect HomeR
                     _ -> redirect CadastroR
-
-postPessoaR :: PessoaId -> Handler Html
-postPessoaR pid = do
-     runDB $ delete pid
-     redirect ListarR

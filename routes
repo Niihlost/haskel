@@ -1,7 +1,6 @@
 /                   HomeR     GET
 /pessoa/cadastro    CadastroR GET    POST
 /pessoa/listar      ListarR   GET 
-/perfil/#PessoaId   PessoaR   GET    POST
 /onibus/cadastro    OnibusR   GET    POST
 /login              LoginR    GET    POST
 /logout             LogoutR   POST
