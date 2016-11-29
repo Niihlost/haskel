@@ -37,6 +37,7 @@ Viagem
     destino CidadeId
     onibusid OnibusId
     preco Double
+    UniqueOrigemDestino origem destino
     deriving Show
 |]
 

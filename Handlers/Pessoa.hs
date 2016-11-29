@@ -31,7 +31,8 @@ getListarR = do
              defaultLayout $ do
                  $(whamletFile "templates/lista.hamlet") 
                  toWidget $(luciusFile "templates/lista.lucius")
-
+             
+             
 postCadastroR :: Handler Html
 postCadastroR = do
                 ((result, _), _) <- runFormPost formPessoa

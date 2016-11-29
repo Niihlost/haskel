@@ -37,19 +37,25 @@ postViagemR = do
                        runDB $ insert viagem
                        defaultLayout [whamlet|
                            <h1>Viagem Inserido com sucesso.
-                           <h2><a href=@{HomeR}>Voltar
+                           <h3><a href=@{HomeR}>Página principal   <h3><a href=@{CidadeR}>Voltar
                        |]
                     _ -> redirect ViagemR
                     
 {-getListarViagemR :: Handler Html
 getListarViagemR = do
-                listaP <- runDB $ selectList [] [Asc ViagemOrigem]
+                viagens <- runDB $ selectList [] [Asc ViagemOrigem]
                 defaultLayout $ do
-                    [whamlet|
-                        <h1>Frota cadastradas:
-                        $forall Entity pid viagem <- listaP
-                            #{viagemOrigem listaP} - 
-                            #{viagemDestino listaP} - 
-                            #{viagemOnibusid listaP} - 
-                            #{viagemPreco listaP}<br>
-                        |]-}
+                [whamlet|
+                    <table>
+                        <tr>
+                            <td> Id
+                            <td> Origem
+                            <td> Destino
+                            <td> Preço
+                        $forall Entity id viagem <- viagens
+                        <tr>
+                            <td> #{fromSqlKey vid}
+                            <td> #{viagemOrigem  viagem}
+                            <td> #{viagemDestino viagem}
+                            <td> #{viagemPreco   viagem}
+         |]-}

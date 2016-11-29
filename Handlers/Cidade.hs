@@ -31,9 +31,8 @@ postCidadeR = do
                     FormSuccess cidade -> do
                        runDB $ insert cidade
                        defaultLayout [whamlet|
-                       <center>
                            <h1>Cidade cadastrada com sucesso. 
-                           <h3><a href=@{HomeR}>Página principal   <h3><a href=@{CidadeR}>Voltar
+                           <h3><a href=@{HomeR}>Página principal   <a href=@{MenuCidadeR}>Voltar
                        |]
                     _ -> redirect CidadeR
             
@@ -42,9 +41,25 @@ getListarCidadeR = do
              listaP <- runDB $ selectList [] [Asc CidadeNome]
              defaultLayout $ do
                 [whamlet|
+                        <center>
                         <h1>Cidades cadastradas:
                         $forall Entity pid cidade <- listaP
                             #{cidadeNome cidade} - 
                             #{cidadeEstado cidade} - 
                             #{cidadeSigla_estado cidade}<br>
+                        <br><form action=@{MenuCidadeR} method=get>
+                        <input type="submit" value="Menu">
                 |]
+                
+getMenuCidadeR :: Handler Html
+getMenuCidadeR = do
+        defaultLayout $ do
+            [whamlet|
+                <h1>Menu de Cidades:
+                <ul>
+                    <li><a href=@{CidadeR}>Cadastro de Cidades
+                    <li><a href=@{ListarCidadeR}>Lista de Cidades
+                    
+                    <br><form action=@{HomeR} method=get>
+                    <input type="submit" value="Home">
+            |]  

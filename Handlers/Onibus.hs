@@ -31,7 +31,7 @@ postOnibusR = do
                        runDB $ insert onibus
                        defaultLayout [whamlet|
                            <h1>Onibus Inserido com sucesso.
-                           <h2><a href=@{HomeR}>Voltar
+                           <h3><a href=@{HomeR}>Página principal   <h3><a href=@{MenuOnibusR}>Voltar
                        |]
                     _ -> redirect OnibusR
                     
@@ -40,8 +40,24 @@ getListarOnibusR = do
                 listaP <- runDB $ selectList [] [Asc OnibusMarca]
                 defaultLayout $ do
                     [whamlet|
+                        <center>
                         <h1>Frota cadastradas:
                         $forall Entity pid onibus <- listaP
                             #{onibusMarca onibus} - 
                             #{onibusPlaca onibus} <br>
+                        <br><form action=@{MenuOnibusR} method=get>
+                        <input type="submit" value="Menu">
                         |]
+                    
+getMenuOnibusR :: Handler Html
+getMenuOnibusR = do
+        defaultLayout $ do
+            [whamlet|
+                Menu de Onibus
+                <ul>
+                    <li><a href=@{OnibusR}>Cadastro de Onibus
+                    <li><a href=@{ListarOnibusR}>Lista de Onibus
+                    
+                    <br><form action=@{HomeR} method=get>
+                    <input type="submit" value="Home">
+            |]

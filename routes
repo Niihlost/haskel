@@ -9,3 +9,5 @@
 /viagem/cadastro    ViagemR         GET   POST
 /cidade/cadastrar   CidadeR         GET   POST
 /cidade/listar      ListarCidadeR   GET
+/cidade/menu        MenuCidadeR     GET
+/onibus/menu        MenuOnibusR     GET
