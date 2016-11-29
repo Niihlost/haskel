@@ -11,9 +11,9 @@ import Database.Persist.Postgresql
 
 formOnibus :: Form Onibus
 formOnibus = renderDivs $ Onibus <$>
-            areq textField "Marca" Nothing <*>
+            areq textField "Marca:     " Nothing <*>
             areq textField FieldSettings{fsId=Just "hident2",
-                           fsLabel="Placa",
+                           fsLabel="Placa:     ",
                            fsTooltip= Nothing,
                            fsName= Nothing,
                            fsAttrs=[("maxlength","7")]} Nothing

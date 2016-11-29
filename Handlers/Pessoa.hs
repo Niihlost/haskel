@@ -13,10 +13,10 @@ import Database.Persist
 
 formPessoa :: Form Pessoa
 formPessoa = renderDivs $ Pessoa <$>
-             areq textField "Nome" Nothing <*>
-             areq intField "Idade" Nothing <*>
-             areq emailField "E-mail" Nothing <*>
-             areq passwordField "Password" Nothing
+             areq textField "Nome:     " Nothing <*>
+             areq intField "Idade:     " Nothing <*>
+             areq emailField "E-mail:     " Nothing <*>
+             areq passwordField "Password:     " Nothing
 
 getCadastroR :: Handler Html
 getCadastroR = do

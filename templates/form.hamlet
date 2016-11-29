@@ -1,4 +1,4 @@
     #{y}
     <form method=post action=@{x} enctype=#{enctype}>
-        ^{widget}
+        ^{widget}<br>
         <input type="submit" value=#{z}>

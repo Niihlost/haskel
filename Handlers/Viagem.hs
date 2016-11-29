@@ -41,7 +41,7 @@ postViagemR = do
                        |]
                     _ -> redirect ViagemR
                     
-getListarViagemR :: Handler Html
+{-getListarViagemR :: Handler Html
 getListarViagemR = do
                 listaP <- runDB $ selectList [] [Asc ViagemOrigem]
                 defaultLayout $ do
@@ -52,4 +52,4 @@ getListarViagemR = do
                             #{viagemDestino listaP} - 
                             #{viagemOnibusid listaP} - 
                             #{viagemPreco listaP}<br>
-                        |]
+                        |]-}

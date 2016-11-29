@@ -19,9 +19,6 @@ getHomeR :: Handler Html
 getHomeR = defaultLayout $ do
      sess <- lookupSession "_ID"
      [whamlet|
-     $maybe _ <- sess
-                <form action=@{LoginR} method=post>
-                <input type="submit" value="Logout">
         <menu><h1>Sistema de reserva de onibus
             <ul>
                 <li><a href=@{LoginR}>Login.
@@ -29,4 +26,8 @@ getHomeR = defaultLayout $ do
                 <li><a href=@{OnibusR}>Cadastro da Frota.
                 <li><a href=@{CidadeR}>Cadastro de Cidades.
                 <li><a href=@{ViagemR}>Cadastro de Viagem.
+            </ul>
+        $maybe _ <- sess
+                <br><form action=@{LogoutR} method=post>
+                    <input type="submit" value="Logout">
      |]

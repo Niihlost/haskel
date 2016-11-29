@@ -7,6 +7,5 @@
 /logout             LogoutR         POST
 /static             StaticR         Static getStatic
 /viagem/cadastro    ViagemR         GET   POST
-/viagem/listar      ListarViagemR   GET
 /cidade/cadastrar   CidadeR         GET   POST
 /cidade/listar      ListarCidadeR   GET

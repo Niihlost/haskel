@@ -56,6 +56,7 @@ instance Yesod Sitio where
     
     isAuthorized LoginR _ = return Authorized
     isAuthorized CadastroR _ = return Authorized
+    isAuthorized HomeR _ = return Authorized
     isAuthorized _ _ = estaAutenticado
 
 estaAutenticado :: Handler AuthResult
