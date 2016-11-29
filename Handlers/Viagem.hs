@@ -40,3 +40,16 @@ postViagemR = do
                            <h2><a href=@{HomeR}>Voltar
                        |]
                     _ -> redirect ViagemR
+                    
+getListarViagemR :: Handler Html
+getListarViagemR = do
+                listaP <- runDB $ selectList [] [Asc ViagemOrigem]
+                defaultLayout $ do
+                    [whamlet|
+                        <h1>Frota cadastradas:
+                        $forall Entity pid viagem <- listaP
+                            #{viagemOrigem listaP} - 
+                            #{viagemDestino listaP} - 
+                            #{viagemOnibusid listaP} - 
+                            #{viagemPreco listaP}<br>
+                        |]
