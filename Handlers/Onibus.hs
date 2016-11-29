@@ -34,3 +34,14 @@ postOnibusR = do
                            <h2><a href=@{HomeR}>Voltar
                        |]
                     _ -> redirect OnibusR
+                    
+getListarOnibusR :: Handler Html
+getListarOnibusR = do
+                listaP <- runDB $ selectList [] [Asc OnibusMarca]
+                defaultLayout $ do
+                    [whamlet|
+                        <h1>Frota cadastradas:
+                        $forall Entity pid onibus <- listaP
+                            #{onibusMarca onibus} - 
+                            #{onibusPlaca onibus} <br>
+                        |]

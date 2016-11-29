@@ -2,6 +2,7 @@
 /pessoa/cadastro    CadastroR       GET    POST
 /pessoa/listar      ListarR         GET 
 /onibus/cadastro    OnibusR         GET    POST
+/onibus/listar      ListarOnibusR   GET
 /login              LoginR          GET    POST
 /logout             LogoutR         POST
 /static             StaticR         Static getStatic
